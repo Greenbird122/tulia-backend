@@ -26,7 +26,9 @@ app.use((err, req, res, next) => {
     res.status(500).json({ success: false, message: 'Something went wrong!' });
 });
 
+// Use the PORT provided by Railway, or 8080 as a fallback
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => 
-    console.log(`🚀 Tulia Backend running on port ${PORT}`)
-);
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Tulia Backend is live on port ${PORT}`);
+});
